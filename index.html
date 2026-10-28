@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 60px;
+            background: #eef2ff;
+        }
+        .calculator {
+            background: white;
+            padding: 25px;
+            margin: auto;
+            width: 280px;
+            border-radius: 12px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            width: 80px;
+        }
+        button { cursor: pointer; }
+        #result { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Online Calculator</h2>
+        <input type="number" id="a" placeholder="Number 1">
+        <input type="number" id="b" placeholder="Number 2">
+
+        <br>
+        <button onclick="calc('+')">+</button>
+        <button onclick="calc('-')">-</button>
+        <button onclick="calc('*')">*</button>
+        <button onclick="calc('/')">/</button>
+
+        <p id="result">Result: </p>
+    </div>
+
+    <script>
+        function calc(op) {
+            let a = Number(document.getElementById("a").value);
+            let b = Number(document.getElementById("b").value);
+            let r;
+
+            if (op === '+') r = a + b;
+            else if (op === '-') r = a - b;
+            else if (op === '*') r = a * b;
+            else if (b === 0) {
+                document.getElementById("result").innerText =
+                    "Cannot divide by zero";
+                return;
+            } else r = a / b;
+
+            document.getElementById("result").innerText = "Result: " + r;
+        }
+    </script>
+</body>
+</html>
